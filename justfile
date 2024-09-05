@@ -3,7 +3,7 @@ spec := justfile_directory() + "/spec"
 
 # Run the runt.nvim test suite.
 test *test_files=spec:
-    luarocks test --local -- {{ test_files }}
+    eval $(luarocks path --no-bin --lua-version 5.1); luarocks --lua-version 5.1 test --local -- {{ test_files }}
 
 # Coarsely profile how long the whole test suite takes to run.
 profile-test *ARGS:
