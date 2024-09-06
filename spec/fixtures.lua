@@ -17,7 +17,7 @@ end
 ---@param name string
 ---@return string
 function Fixture:child(name)
-  return vim.fs.joinpath(self.path, name)
+  return vim.fs.normalize(vim.fs.joinpath(self.path, name))
 end
 
 local M = {
