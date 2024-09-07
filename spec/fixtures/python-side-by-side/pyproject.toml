@@ -1,0 +1,8 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "another"
+version = "1.2.3"
+description = "Another test package"
