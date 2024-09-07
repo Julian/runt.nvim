@@ -21,9 +21,12 @@ function Fixture:child(name)
 end
 
 local M = {
+  lua = {
+    neovim_plugin = Fixture:new 'neovim-plugin',
+  },
   python = {
-    tests_in_package = Fixture:new '/python-in-package',
-    tests_side_by_side = Fixture:new '/python-side-by-side',
+    tests_in_package = Fixture:new 'python-in-package',
+    tests_side_by_side = Fixture:new 'python-side-by-side',
   },
 }
 
