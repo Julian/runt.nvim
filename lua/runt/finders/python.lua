@@ -5,7 +5,7 @@ return function(path)
     { type = 'directory', path = path, upward = true }
   )
 
-  local filename = 'test_' .. vim.fs.basename(path)
+  local filename = 'test_' .. vim.fs.basename(path):gsub('^_*', '')
   return vim
     .iter(found)
     :map(function(tests)
