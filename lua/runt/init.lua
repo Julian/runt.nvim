@@ -3,7 +3,8 @@ local M = {}
 --- Find the test file path for the current buffer.
 --- @return string? @the test file path
 function M.current_test_file()
-  return M.test_file_for(vim.api.nvim_buf_get_name(0))
+  local finder = vim.b.runt_finder or M.test_file_for
+  return finder(vim.api.nvim_buf_get_name(0))
 end
 
 --- Find the test file path for the given source file.
