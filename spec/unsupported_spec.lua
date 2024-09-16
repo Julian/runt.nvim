@@ -17,14 +17,20 @@ describe('unsupported', function()
 
   it('warns for unnamed buffers', function()
     assert.is.equal(vim.api.nvim_buf_get_name(0), '')
-    assert.is_nil(require('runt').current_test_file())
+    local result = require('runt'):current_test_file()
+    result:if_exists(function()
+      error 'Should not exist!'
+    end, function() end)
     assert.is.same(notifications, { 'Cannot find a suitable test file.' })
   end)
 
   it('warns for unsupported filetypes', function()
     vim.bo.filetype = 'someNonexistentFiletype'
     vim.api.nvim_buf_set_name(0, 'someFile.sNF')
-    assert.is_nil(require('runt').current_test_file())
+    local result = require('runt'):current_test_file()
+    result:if_exists(function()
+      error 'Should not exist!'
+    end, function() end)
     assert.is.same(notifications, {
       ('Cannot find a suitable test file for %q'):format(
         vim.api.nvim_buf_get_name(0)
