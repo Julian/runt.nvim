@@ -6,7 +6,9 @@ TestFile.__index = TestFile
 ---@class NO_FILE_FOUND
 local NO_FILE_FOUND = {
   if_exists = function(_, _, else_fn)
-    else_fn(nil)
+    if else_fn then
+      else_fn(nil)
+    end
   end,
 }
 
