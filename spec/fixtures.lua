@@ -28,6 +28,9 @@ local M = {
     tests_in_package = Fixture:new 'python-in-package',
     tests_side_by_side = Fixture:new 'python-side-by-side',
   },
+  typescript = {
+    side_by_side = Fixture:new 'typescript-side-by-side',
+  },
 }
 
 return M

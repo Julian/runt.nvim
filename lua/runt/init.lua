@@ -43,7 +43,12 @@ function TestFile.test_file_for(path)
   --       which the most 'central' function will be, and by path likely isn't
   --       it, as we can do *better* if we're in a live buffer, same as
   --       `vim.filetype.match` itself can do better with a live buffer.
-  local filetype = vim.filetype.match { filename = path }
+  --
+  --
+  --      See neovim/neovim#27265 for the silly typescript special casing until
+  --      that's done.
+  local filetype = path:match '%.ts' and 'typescript'
+    or vim.filetype.match { filename = path }
   if filetype then
     local finder = ('runt.finders.%s'):format(filetype)
     local test_path = require(finder)(path)
