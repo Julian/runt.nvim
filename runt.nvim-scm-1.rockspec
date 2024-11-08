@@ -7,7 +7,7 @@ version = MODREV .. SPECREV
 description = {
   summary = 'Neovim support for the Lean theorem prover',
   detailed = 'Interactive theorem proving inside Neovim.',
-  labels = { 'neovim', 'plugin', 'lean', 'leanprover' },
+  labels = { 'neovim', 'plugin', 'testing', 'tests', 'tdd' },
   homepage = 'https://github.com/Julian/lean.nvim',
   license = 'MIT',
 }
