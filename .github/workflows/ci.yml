@@ -37,6 +37,6 @@ jobs:
           neovim: true
           version: ${{ matrix.nvim-version }}
 
-      - uses: extractions/setup-just@v3
+      - uses: extractions/setup-just@v4
       - name: Run tests
         run: just test
